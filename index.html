@@ -14,8 +14,9 @@
             min-height: 600px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            padding-top: 15vh;
+            justify-content: space-between;
+            padding-top: 8vh;
+            padding-bottom: 3rem;
             align-items: center;
             text-align: center;
             overflow: hidden;
@@ -25,12 +26,18 @@
             position: absolute;
             inset: 0;
             background: url('hero.jpeg') center 30%/cover no-repeat;
-            filter: brightness(0.35);
+            filter: brightness(0.45);
             z-index: 0;
         }
         .hero > * { position: relative; z-index: 1; }
 
-        .logo { width: 120px; margin-bottom: 2rem; }
+        .logo {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            width: 60px;
+            z-index: 2;
+        }
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             color: #fff;
@@ -45,7 +52,7 @@
             color: rgba(255,255,255,0.85);
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .stats {
@@ -66,6 +73,7 @@
             opacity: 0.7;
         }
 
+        .spacer { flex: 1; }
         .rebuild-notice {
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
@@ -124,6 +132,8 @@
                 <span class="stat-label">Countries represented</span>
             </div>
         </div>
+
+        <div class="spacer"></div>
 
         <div class="rebuild-notice">
             <strong>We're expanding.</strong> New sports, new locations, new website. Coming soon.
