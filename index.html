@@ -1,157 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REAL TEAM Sport | Sports Travel</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #111; background: #fff; }
-
-        .hero {
-            position: relative;
-            height: 100vh;
-            min-height: 600px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding-top: 8vh;
-            padding-bottom: 3rem;
-            align-items: center;
-            text-align: center;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url('hero.jpeg') center 30%/cover no-repeat;
-            filter: brightness(0.45);
-            z-index: 0;
-        }
-        .hero > * { position: relative; z-index: 1; }
-
-        .logo {
-            position: absolute;
-            top: 1.5rem;
-            right: 2rem;
-            width: 60px;
-            z-index: 2;
-        }
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            color: #fff;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-        .hero h1 span { font-weight: 300; }
-        .tagline {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
-            color: rgba(255,255,255,0.85);
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-        }
-
-        .stats {
-            display: flex;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        .stat { text-align: center; color: #fff; }
-        .stat-number {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            font-weight: 700;
-            display: block;
-        }
-        .stat-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            opacity: 0.7;
-        }
-
-        .spacer { flex: 1; }
-        .rebuild-notice {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 8px;
-            padding: 1.2rem 2rem;
-            color: rgba(255,255,255,0.9);
-            font-size: 0.95rem;
-            max-width: 500px;
-        }
-        .rebuild-notice strong { color: #fff; }
-
-        .contact {
-            position: absolute;
-            bottom: 2rem;
-            color: rgba(255,255,255,0.7);
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-        }
-        .contact a { color: rgba(255,255,255,0.9); text-decoration: none; }
-        .contact a:hover { text-decoration: underline; }
-
-        .impressum {
-            background: #111;
-            color: rgba(255,255,255,0.5);
-            padding: 2rem;
-            font-size: 0.75rem;
-            line-height: 1.8;
-            text-align: center;
-        }
-        .impressum strong { color: rgba(255,255,255,0.7); }
-
-        @media (max-width: 600px) {
-            .stats { flex-direction: column; gap: 1.5rem; }
-            .rebuild-notice { margin: 0 1rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REAL TEAM Sport | Sport Events & Active Travel Since 1994</title>
+  <meta name="description" content="A family-rooted travel company organizing international sport events and active travel experiences since 1994. Home of FRESH — the world's biggest roundnet training camp.">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo"><img src="logo-dark.svg" alt="REAL TEAM Sport"></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="fresh.html">FRESH</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menu" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div id="mobile-menu" class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="fresh.html">FRESH</a>
+    <a href="blog.html">Blog</a>
+    <a href="impressum.html">Impressum</a>
+  </div>
+
+  <main>
+
+    <!-- Hero -->
     <section class="hero">
-        <img src="logo-white.svg" alt="REAL TEAM" class="logo">
-        <h1>Real Team <span>Sport</span></h1>
-        <p class="tagline">Sports Travel</p>
-
-        <div class="stats">
-            <div class="stat">
-                <span class="stat-number">5</span>
-                <span class="stat-label">Years in Mallorca</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">3,000+</span>
-                <span class="stat-label">Room nights booked</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">27</span>
-                <span class="stat-label">Countries represented</span>
-            </div>
-        </div>
-
-        <div class="spacer"></div>
-
-        <div class="rebuild-notice">
-            <strong>We're expanding.</strong> New sports, new locations, new website. Coming soon.
-        </div>
-
-        <div class="contact">
-            <a href="mailto:jakub@realteamsport.eu">jakub@realteamsport.eu</a>
-        </div>
+      <div class="hero-bg" style="background-image: url('hero.jpeg');"></div>
+      <div class="hero-content">
+        <h1>Sport events &amp; active travel since 1994</h1>
+        <p class="hero-subline">A family company that organizes international sport events and takes people to places they remember.</p>
+        <a href="fresh.html" class="btn btn-primary">Discover FRESH →</a>
+      </div>
+      <div class="hero-scroll">Scroll</div>
     </section>
 
-    <footer class="impressum">
-        <strong>Impressum</strong><br>
-        REAL TEAM, s.r.o.<br>
-        Pri kríži 18, 841 02 Bratislava, Slovakia<br>
-        IČO: 31 369 049<br>
-        Registered: Mestský súd Bratislava III, Oddiel: Sro, Vložka: 6700/B<br>
-        Director: Jakub Popluhár<br>
-        Contact: <a href="mailto:jakub@realteamsport.eu" style="color: rgba(255,255,255,0.7);">jakub@realteamsport.eu</a>
-    </footer>
+    <!-- Who We Are -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="two-col">
+          <div class="two-col-text">
+            <p class="section-label">Who We Are</p>
+            <h2>Third chapter of a family company</h2>
+            <p>REAL TEAM started as a family travel agency in Slovakia in 1994 — my parents built it from scratch, running school ski trips and sport travel across Central Europe for 20 years.</p>
+            <p>I took it over in 2023. Third chapter.</p>
+            <p>I've lived in Munich, worked in tourism across Europe, visited 50+ countries, played floorball for the Slovak national team, and spent too many hours organizing trips that turned into something bigger than a trip.</p>
+            <p>The CK travel agency license is still active. The spirit of "get people moving together" never changed. The type of travel did.</p>
+            <p class="credential-line">CK travel agency license since 1994 · IČO: 31 369 049</p>
+          </div>
+          <div class="two-col-img">
+            <img src="assets/images/fresh26-scream.jpg" alt="FRESH 26 — energy on the beach">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What We Do -->
+    <section class="section section-grey">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">What We Do</p>
+          <h2>Sport. Travel. Community.</h2>
+        </div>
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🏖️</div>
+            <h3>FRESH / Mallorca Open</h3>
+            <p>The world's biggest roundnet training camp. 5 editions. 27+ countries. Sold out every year. Mallorca in March.</p>
+            <a href="fresh.html">Learn more →</a>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">✈️</div>
+            <h3>Active Travel</h3>
+            <p>Group trips, team buildings, and sport community travel. We organize the logistics so the experience can be the point.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🤝</div>
+            <h3>Partnerships</h3>
+            <p>We work with hotels, sponsors, and sport brands to create experiences worth traveling for. Always open to the right collaboration.</p>
+            <a href="mailto:jakub@realteamsport.de">Get in touch →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Track Record -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="two-col">
+          <div>
+            <p class="section-label">Track Record</p>
+            <h2>30 years of getting people moving</h2>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <p class="timeline-year">1994</p>
+              <h3>Company founded</h3>
+              <p>CK travel agency license. Slovakia. School ski trips and sport travel across Central Europe.</p>
+            </div>
+            <div class="timeline-item">
+              <p class="timeline-year">2000s</p>
+              <h3>Family era</h3>
+              <p>Handball tournaments, skiing trips, youth sport travel. Two decades of keeping the license active and people moving.</p>
+            </div>
+            <div class="timeline-item">
+              <p class="timeline-year">2022</p>
+              <h3>FRESH 22 — First edition</h3>
+              <p>First roundnet training camp in Mallorca. 30 players. The beginning of something.</p>
+            </div>
+            <div class="timeline-item">
+              <p class="timeline-year">2023 – 2025</p>
+              <h3>FRESH 23, 24, 25</h3>
+              <p>Growing every year. International field. 15+ countries by edition 3.</p>
+            </div>
+            <div class="timeline-item highlight">
+              <p class="timeline-year">2026</p>
+              <h3>FRESH 26 — Sold out</h3>
+              <p>5th anniversary. 50+ players. 27 countries. Sold out.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Story Behind It -->
+    <section class="section section-purple">
+      <div class="container">
+        <div class="story-content">
+          <p class="section-label">The Story Behind It</p>
+          <h2>Not every attempt worked.</h2>
+          <p>I've organized events that sold out and events that didn't. Tried building a coaching app — didn't go anywhere. Ran a podcast for two years. Moved countries twice. Started a sport from scratch in a city where nobody had heard of it.</p>
+          <p>The common thread: I keep doing it. Not because it always works, but because organizing things for people who show up is worth the effort.</p>
+          <p>The full stories are on the blog.</p>
+          <a href="blog.html" class="btn btn-outline">Read the blog →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <img src="logo-white.svg" alt="REAL TEAM Sport">
+        <p>REAL TEAM, s.r.o. | IČO: 31 369 049<br>CK travel agency license since 1994<br>Registered in Slovakia</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://futureroundnet.com" target="_blank" rel="noopener">Future Roundnet</a>
+        <a href="https://realteamdigital.sk" target="_blank" rel="noopener">REAL TEAM Digital</a>
+        <a href="mailto:jakub@realteamsport.de">jakub@realteamsport.de</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 REAL TEAM Sport</div>
+  </footer>
+
 </body>
 </html>
