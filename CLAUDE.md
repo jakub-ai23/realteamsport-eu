@@ -1,35 +1,35 @@
 # RT Sport Website
 
 Created: 2026-04-07
-Last updated: 2026-08-01 (v1.1 — positioning corrected)
+Last updated: 2026-08-01 (v2 — stripped to a company page)
 
 ## What This Is
 
-Website for **REAL TEAM Sport** — a **sports travel agency**. REAL TEAM, s.r.o. takes sport
-communities somewhere and handles everything that is not the sport. Roundnet community, diving
-community, club, training group: the sport is the variable, the agency is the constant.
+A **credibility page for REAL TEAM, s.r.o.** The reader is the tax office, or anyone verifying that
+the company is a real, operating business. It is a **document, not a marketing site**: no selling,
+no brand-building, no CTAs, no analytics, no scripts.
 
-**This is not a roundnet site.** Roundnet is one discipline and it is the *proof*, not the identity.
-**Future Roundnet is an owned sub-brand with its own house at futureroundnet.com** — roundnet
-audiences belong there. `roundnet.html` here is a page *about* the brand that sends them onward.
-The valuable traffic runs the other way: someone meets Future Roundnet, asks who is behind it,
-lands here, finds a licensed 30-year-old company.
+**Domain: `realteamsport.eu`** — singular "sport", never "sports".
 
-A **credibility site, not a conversion site.** No booking, no prices, no forms.
+**The whole site is four files:**
+```
+index.html      Slovak      (primary — the reader is a Slovak authority)
+en/index.html   English
+pravne.html     Slovak legal
+en/legal.html   English legal
+404.html
+```
 
-**Skydiving is not to be written about** until the Commander says otherwise (2026-08-01).
-
-**Domain: `realteamsport.eu`** — singular "sport", never "sports". `realteamsport.de` also exists.
+Deleted 2026-08-01 and not to be reinstated without a reason: blog, roundnet page, travel page,
+the three separate legal pages, DE stubs, old redirects, all JavaScript.
 
 ## Status
 
-**v1.1 built locally, NOT deployed.** Read `REVIEW-NOTES.md` before doing anything else — it holds
-the blocking items, the unverified copy claims, and what changed from v0.1.
+**v2 built, NOT deployed.** Read `REVIEW-NOTES.md` first — open placeholders, missing photos,
+and the Slovak proofread are listed there.
 
-**Deploy is currently broken by configuration:** GitHub Pages serves branch **`gh-pages`**; all work
-is on **`main`**. That is why the live domain still shows the March 2026 placeholder. Do not switch
-the Pages source until v1.0 is signed off — flipping it publishes `main` instantly, with no preview.
-
+Pages serves `gh-pages`; work is on `main`. That is why the live domain still shows the March
+placeholder. Do not switch the source until this version is approved.
 ## Deploy
 
 ```bash
@@ -44,23 +44,21 @@ Local preview: `python3 -m http.server 8899` then `http://localhost:8899/`
 ## File Structure
 
 ```
-index.html · roundnet.html · travel.html · 404.html
-impressum.html, datenschutz.html   # redirects to /legal/ — keep, they preserve old links
-legal/     imprint.html · privacy.html · travel-terms.html
-de/, sk/   language stubs (noindex) — structure ready, content pending
-css/       style.css (all shared styles) · fonts.css (generated, self-hosted @font-face)
-js/        site.js (mobile nav only)
-assets/    images/ (8 photos, 2000px max) · fonts/ (4 woff2, latin + latin-ext)
+index.html · en/index.html · pravne.html · en/legal.html · 404.html
+css/       style.css (all shared styles) · fonts.css (self-hosted @font-face)
+assets/    images/ (2000px max, q62) · fonts/ (4 woff2, latin + latin-ext)
 preview/   screenshots — not part of the site
 PLAN-v1.md · REVIEW-NOTES.md
 ```
 
 ## Design System
 
-- **Colours:** `--purple #511090` · `--ink #0f0d14` · `--sand #f7f5f3` (warm, not grey) · `--line #e4dfda`
-- **Type:** Archivo (display) + Inter (body), both **variable, self-hosted**, weight range 100–900
-- **Layout:** sticky nav · full-bleed hero with gradient scrim · "ledger" proof strip · asymmetric
-  splits · bordered pillar grid · timeline rail · dark `.section-ink` for the honest/contact sections
+- **Restraint is the design.** Document-like: modest type scale, hairline rules, data tables.
+  A brochure reads as marketing; a company profile reads as substance. That is the whole brief.
+- **Colours:** `--ink #14131a` · `--sand #f6f4f2` · `--line #e2ded9` · `--accent #511090` used
+  only as a hairline. The Future Roundnet pink/cyan lives **in the photographs**, never in the
+  chrome — putting it in the UI would compete with the photos and invert the brand hierarchy.
+- **Type:** Archivo (display) + Inter (body), variable, self-hosted.
 - **`.needs-input`** = loud yellow placeholder for unconfirmed facts. Must never reach production.
 
 ## Content integrity — read before writing any copy

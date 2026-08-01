@@ -765,3 +765,57 @@ strong { color: var(--ink); font-weight: 600; }
   body { color: #000; }
   a { text-decoration: underline; }
 }
+
+/* --- Per-page hero images (no inline CSS) --------------------------------- */
+.hero-media-home { background-image: url('../assets/images/fresh24-group.jpg'); background-position: center 62%; }
+
+/* --- Gallery -------------------------------------------------------------- */
+/* Uniform grid on purpose: 8 images over 4 columns is exactly two full rows at
+   every breakpoint, so the block can never end on an orphan. */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+.gallery img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: var(--sand-deep);
+}
+
+@media (max-width: 900px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .gallery { grid-template-columns: 1fr; } }
+
+/* --- Destinations --------------------------------------------------------- */
+.dests { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: clamp(1.25rem, 3vw, 2rem); }
+.dest img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
+.dest h3 { margin-top: 1rem; }
+.dest p { margin-top: 0.4rem; font-size: 0.96rem; }
+
+/* --- Enquiry form --------------------------------------------------------- */
+.enquiry { max-width: 34rem; margin-top: 1.75rem; }
+.enquiry label { display:block; font-family: var(--display); font-size:.8rem; font-weight:600; color:#fff; margin-bottom:.35rem; }
+.enquiry input[type="text"], .enquiry input[type="email"], .enquiry textarea {
+  width:100%; font:inherit; color:#fff; background: rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.25); border-radius: var(--radius);
+  padding:.7rem .8rem; margin-bottom:1rem;
+}
+.enquiry textarea { resize: vertical; }
+.enquiry input:focus, .enquiry textarea:focus { border-color:#fff; outline:none; }
+.enquiry .check { display:flex; align-items:flex-start; gap:.6rem; font-family: var(--body); font-size:.85rem; font-weight:400; color: rgba(255,255,255,.72); margin-bottom:1.4rem; }
+.enquiry .check input { margin-top:.25rem; flex:none; }
+.enquiry .check span { max-width: 46ch; }
+.enquiry .check a { color:#fff; }
+.enquiry button {
+  font-family: var(--display); font-size:.85rem; font-weight:600; letter-spacing:.08em;
+  text-transform:uppercase; color: var(--ink); background:#fff; border:0;
+  border-radius: var(--radius); padding:.95rem 1.7rem; cursor:pointer; transition: background .2s ease;
+}
+.enquiry button:hover { background: #e9dcf7; }
+
+/* --- Trust line ----------------------------------------------------------- */
+.trust { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,.18); font-size: .85rem; color: rgba(255,255,255,.6); }
+.trust a { color: rgba(255,255,255,.85); }

@@ -1,273 +1,174 @@
-# REAL TEAM Sport v1.0 — Review Notes
+# REAL TEAM, s.r.o. — site notes
 
-**Created:** 2026-08-01
-**Status:** Built locally. NOT deployed. Needs Commander sign-off + the items below.
+**Last updated:** 2026-08-01 · **Status:** v2 built locally, NOT deployed.
 
-This file separates **FACT** (traced to a file), **NEEDS CONFIRMATION** (plausible but unverified)
-and **NEEDS INPUT** (missing). Nothing on this list was invented to fill a gap — where a fact was
-missing I left a visible placeholder rather than writing something that reads well.
+## What this site is
 
----
+A credibility page for a company that is not being marketed. The reader is the tax office or anyone
+checking whether REAL TEAM, s.r.o. is a real, operating business. It is a document, not a brochure.
 
-## 1. BLOCKING — the site must not go live until these are answered
+**Two pages per language.** Slovak at `/`, English at `/en/`. Legal at `/pravne.html` and
+`/en/legal.html`. That is the whole site.
 
-### 1.1 The deploy is pointed at the wrong branch
-GitHub Pages for `jakub-ai23/realteamsport-eu` serves branch **`gh-pages`**. All work — the April
-v0.1 and this v1.0 — sits on **`main`**. That is why realteamsport.eu still shows the March
-placeholder with a "rebuild notice" on it.
+Everything else was deleted 2026-08-01: the blog, the roundnet page, the travel page, the three
+separate legal pages, the DE stub, the old redirects, and the JavaScript (no menu, no scripts).
 
-**Do not switch the Pages source until v1.0 is approved.** Flipping it now would instantly publish
-whatever is on `main`, which is the exact "deploy without preview" failure the standing rule exists
-to prevent.
+## Decisions behind it (Commander, 2026-08-01)
 
-### 1.2 Which email address is real?
-The v0.1 site used `jakub@realteamsport.de`. `real-team/CLAUDE.md` records the public address as
-`jakub@realteamsport.eu`. **v1.0 uses `.eu` throughout.** Confirm that mailbox actually receives
-mail before launch — it is the only contact route on the entire site.
+- **Only the latest event is shown** — FRESH 26, with photos. FRESH 25 and 24 appear as one dated
+  line each, to show three consecutive years rather than a single event.
+- **Nothing that did not happen goes on the site.** Researched and confirmed: no Slovak agency
+  publishes trips that fell through. Commander: *"I went to Albania and the offer was shit so I
+  couldn't offer it. No that's just bullshit."* He is right — and a website is the wrong artifact
+  for that anyway. What defends a scouting trip is a dated record in the Naklady folder: who was
+  met, what was offered, why it was declined.
+- **Only legally compulsory data is published.** Three items: § 4 zákon 22/2004 identity,
+  insolvency protection under zákon 170/2018, and a GDPR notice (required because the host
+  processes server logs).
+- **The insured sum is deliberately omitted.** The garančný list states 15 000 EUR, which is set at
+  30% of planned annual package revenue and would let a reader infer roughly €50k of turnover. The
+  insurer, policy number and validity are published, which discloses the protection as the law
+  intends. Other SK agencies do publish the sum; this is a considered choice, not an oversight.
 
-### 1.3 Legal placeholders (yellow boxes on the live pages)
-Publishing insolvency-protection details is a **legal obligation** for a Slovak CK under
-zákon č. 170/2018 Z. z. These are marked in loud yellow so they cannot ship unnoticed:
+## From the garančný list (Union, policy 11-66238)
 
-| Where | Missing |
-|---|---|
-| `legal/travel-terms.html` | Insurer name · policy number · validity period · certificate PDF |
-| `legal/imprint.html` | Public telephone number |
-| `legal/imprint.html` | CK trade licence number as registered |
-| `legal/imprint.html` | Competent SOI regional inspectorate + address |
+Insurer Union poisťovňa, a.s., Karadžičova 10, 813 60 Bratislava, IČO 31 322 051 · policy 11-66238 ·
+valid for packages purchased **01.02.2026 – 31.01.2027** · claims majetok.likvidacia@union.sk,
++421 2 2081 1811 · 6-month claim deadline.
 
-**I am not a lawyer.** The structure and statute citations are researched, not authoritative.
-Pavol (afes s.r.o.) or a Slovak lawyer should read both legal pages before launch.
+**⚠ Renewal date: 31.01.2027.** The page states a validity that expires. Put a calendar reminder for
+January 2027 — the previous site sat stale for four months and this is the one field where stale
+equals wrong.
 
----
+## Still needed from you
 
-## 2. Copy claims — confirm or correct
+1. **Real FRESH 26 photographs.** The four in the gallery are the `fresh26-*` files from
+   `future-roundnet-website/` — a grass pitch in cold weather, and the first one is genuinely poor.
+   They sit badly next to the beach lead image. You said you have hundreds; a set of 6–9 from
+   FRESH 26 replaces them directly.
+2. **The lead image is FRESH 23**, captioned "FRESH, Malorka" without a year so it states nothing
+   false — but a FRESH 26 frame would be better on a page whose featured event is FRESH 26.
+3. **Exact FRESH 26 dates.** The page says "marec 2026". FRESH 25 as "marec 2025" is inferred from
+   the Helios rooming list (03.03–14.03.25) in Downloads. FRESH 24 carries a year only, since I have
+   no source for the month. Give me the real dates and they go in.
+4. **Two yellow placeholders** remain, both the same field in SK and EN: the competent SOI
+   inspectorate and address, and a public telephone number for the legal page.
+5. **Slovak proofread.** I drafted it; you are the native speaker and it is addressed to a Slovak
+   authority. The legal terminology especially needs your eye before this goes live.
+6. **Pavol should read `/pravne.html` once** — it is the company's legal exposure, and I am not a
+   lawyer. Ask him specifically whether omitting the insured sum is acceptable.
 
-### 2.1 Homepage / FRESH / Travel (written this session)
+## Before deploy
 
-| Claim | Source | Status |
-|---|---|---|
-| Founded 1994, CK licence since 1994 | `real-team/CLAUDE.md` | FACT |
-| IČO 31 369 049 · SK2020873745 · Pri kríži 18 · Vložka 6700/B | `real-team/CLAUDE.md` | FACT |
-| Registered name is **REAL TEAM, s.r.o.** (not "REAL TEAM Sport s.r.o.") | `real-team/CLAUDE.md`, corrected 2026-07-29 | FACT — used correctly in all legal pages |
-| Took the company over **from my father** | `real-team/CLAUDE.md` §6 | FACT |
-| Handover year **2023** | `RT_SPORT_WEBSITE_BRIEF.md` | NEEDS CONFIRMATION |
-| Studied in Munich and Australia · 50+ countries · floorball for Slovakia | `RT_SPORT_WEBSITE_BRIEF.md` | NEEDS CONFIRMATION |
-| 5 FRESH editions · 27 countries · 200+ participants | `BRAND_NARRATIVE.md` | NEEDS CONFIRMATION |
-| **"Sold out every year so far"** | v0.1 copy | **NEEDS CONFIRMATION — strongest claim on the site.** `real-team/CLAUDE.md` only confirms FRESH 26 sold out. If earlier editions did not, this needs softening. |
-| "1990s–2010s: handball tournaments, skiing groups, youth sport travel" | brief, "parents era" | NEEDS CONFIRMATION |
+GitHub Pages serves branch **`gh-pages`**; the work is on **`main`**. That mismatch is why
+realteamsport.eu still shows the March placeholder. Reconcile it only when this version is approved
+— switching the source publishes `main` instantly, with no preview.
 
-**Deliberately dropped:** the brief's line *"the world's biggest roundnet training camp."* I could not
-verify it against anything, and an unprovable superlative on a credibility site costs more than it buys.
-Say the word and it goes back in.
+## Content integrity record
 
-**Deliberately generic:** the group-travel page does **not** name the fitness-community client
-(FitRock) or the hotels. Naming a client publicly is their call, not ours. Easy to add with permission.
+All three blog posts from the April v0.1 build were fabricated by an agent from topic lines in the
+positioning brief. The Commander recognised none of them, including the most detailed and credible
+of the three. Archived with provenance at `~/Projects/real-team/rt-sports/fabricated-posts-2026-04/`.
 
-### 2.2 Blog posts — TWO WERE FABRICATED AND HAVE BEEN REMOVED
-
-**Confirmed by the Commander, 2026-08-01, verbatim:** *"I have no idea about diving in the Red Sea
-and starting a sports club. I don't even remember that."*
-
-`diving-red-sea.html` and `munich-sports-club.html` were generated by an agent during the April v0.1
-build. It took two topic lines out of `RT_SPORT_WEBSITE_BRIEF.md` — "Diving/travel photo (Red Sea,
-Egypt, or wherever)" and "Munich stories — starting a sports club as an immigrant" — and wrote
-complete first-person narratives around them. The 28 metres and the drifting current, the eight
-people at the first session, the dog, the six weeks and three bank visits, the forty-person group
-chat: invented, not reported.
-
-They sat on branch `main` for four months, one Pages setting away from publishing invented personal
-history under Jakub's name on his own company site.
-
-**Both moved out of the repo** to `~/Projects/real-team/rt-sports/fabricated-posts-2026-04/` with a
-README explaining what they are. Kept as evidence for the no-fabrication rule, not as drafts.
-Do not republish. Git history retains them either way.
-
-**Lesson for this project:** a topic line in a brief is not a source. If a story is worth telling it
-gets told from a real account, or it does not go on the site.
-
-#### The surviving post still needs your numbers
-
-`blog/fresh-behind-the-scenes.html` stays — it is about work you actually did — but it came from the
-same April build and carries the same kind of unsourced precision. **Confirm or correct before launch:**
-
-- [ ] 54 registered participants
-- [ ] participants from 27 countries
-- [ ] three different arrival days · four room categories
-- [ ] WhatsApp group of 53 by day one
-- [ ] payments from seven countries in four currencies; one participant paying in three instalments
-- [ ] sold out eight weeks before the event
-- [ ] the hotel had never hosted a roundnet event before
-
-I already removed the named nationalities of the FRESH 26 tournament winner and most-improved
-player, and the claim that the Munich club reached 60 members.
-
-#### Same scrutiny applies to the homepage "honest part"
-
-The lines about a coaching app that went nowhere, a podcast run for two years, and events that never
-happened all trace to the same brief, not to you directly. Given what the blog posts turned out to
-be, **confirm these too** — they are on the homepage, in first person.
-
-### 2.2b Older note — original blog review
-
-The three posts are **inherited from the April v0.1 build** and were written by an agent. They are
-dense with precise personal detail I cannot verify against a single file in the repo. I preserved the
-substance and rewrote the prose, but **every specific below is unverified**:
-
-- **FRESH BTS:** 54 registered participants · three arrival days · four room categories · WhatsApp group of 53 · payments from seven countries in four currencies · one participant paying in three instalments · sold out eight weeks ahead
-- **Red Sea:** diving since 2019 · started in Croatia · Red Sea twice · the drift incident at 28 metres
-- **Munich:** moved to Munich 2019 · moved to Vienna 2023 · eight people at the first session · one brought a dog · forty in the group chat by year two · bank account took six weeks and three visits to two banks
-
-I removed two things from the originals that were specific enough to be checkable and risky if wrong:
-the named nationalities of the FRESH 26 tournament winner and most-improved player, and the claim
-that the Munich club has 60 members.
-
-**Recommendation:** read all three posts end to end before launch. If a detail is wrong, it is wrong
-in your own voice on your own company site, which is the worst place for it. If they are broadly
-right, they are genuinely good and are the strongest thing on the site after the legal pages.
+Density of specific detail is not evidence of truth. Invention has no budget, so it produces more
+detail than memory does, not less.
 
 ---
 
-## 2.25 Positioning corrected — v1.1 (Commander, 2026-08-01)
+## v3 — 2026-08-01 (later): built as an operating agency, not an Impressum
 
-The first build had the wrong shape: a roundnet company with a travel department. Corrected.
+Commander verdict on v2: *"this is absolutely terrible … This is just an impressum page that you
+built."* Correct, and the error mattered: **an Impressum-only page is what a dormant shell company
+has.** For proving an operating business it signals the opposite of what is needed. The fix was to
+keep the offering and cut the adjectives, not to delete the offering.
 
-**REAL TEAM Sport is a sports travel agency.** The product is the capability — we take sport
-communities somewhere and handle it properly. Roundnet community, diving community, club, training
-group: the sport is the variable, the agency is the constant. Credibility is the whole job.
+**Page order now:** company → **current offer** → latest event with photo evidence → **enquiry
+form** → company details + insolvency → legal page.
 
-**Future Roundnet is an owned sub-brand with its own house.** Roundnet people belong on
-futureroundnet.com. On this site there is a page *about* the brand that sends them there. The
-traffic that matters flows the other way: someone meets Future Roundnet, asks who is behind it,
-lands here, and finds a licensed 30-year-old company.
+### Content decisions
+- **FRESH 27 — March 2027, Mallorca.** Registration "in preparation" (not open).
+- **Tailor-made trips** to Mallorca and Albania. Albania is named as a destination we can arrange —
+  it is **not** claimed as a delivered trip.
+- **FRESH 26 dated 8–15 March 2026.** Derived from the rooming lists in Downloads: 8.3.26 and
+  15.3.26 dominate arrivals/departures; longer stays run 5.3.–16.3. Not invented — but worth your
+  confirmation.
+- **Sóller / Puerto de Sóller group trip, 13 March, private bus** — from the FRESH 26 flyer in
+  `fresh-26/activities/soller-trip-photos/`. This is the single best line on the page for proving
+  travel-agency activity: an organised excursion, with a date and a coach.
+- FRESH 25 and 24 remain one dated line each.
 
-**What changed:**
-- `fresh.html` → **`roundnet.html`**, rewritten as a Future Roundnet brand page. It no longer
-  competes with futureroundnet.com as a mini sales page. Nav label FRESH → Roundnet.
-- Homepage "What we do" reframed: 01 travel for sport communities · 02 our own events (Future
-  Roundnet as proof) · 03 partnerships. Roundnet is now the evidence, not the identity.
-- Homepage hero subline is now the agency line, not an events line.
-- `travel.html` opens with a "whatever the sport" section — the multi-sport frame lives here.
-- **"The world's biggest roundnet training camp" restored** on the Commander's confirmation that it
-  is proven. *Ask:* where does the proof live? A number or source next to it would make it land as
-  fact rather than read as marketing.
+### Photos — correcting an earlier misread
+I previously flagged the `Fresh26 Day1/Day2` files as unusable winter pitch shots. **That was wrong**
+— judged off a small sample. They are professional FRESH 26 photographs and the set includes the
+sunset training frame, the flag celebration, the trophy and the podium. Now in use.
 
-**Skydiving: deliberately not written anywhere.** Per instruction.
+Sources found: **Ruwen** (roundnet.sports.photography) and **Esaja** — the photographers. Plus
+Corentin Bureau (yellowballcult). Curated sets already existed in the old Durable site scrape at
+`rt-sports/future-roundnet-website/scrape/futureroundnet-assets/`.
 
-**Not claimed anywhere:** that REAL TEAM has run a diving or skydiving trip. Diving appears only as
-an example of the *kind* of community we serve. If REAL TEAM has actually delivered one, say so and
-it becomes a proof point instead of an illustration.
+Two traps for whoever touches this next: FRESH 26 photos are **HEIC**, so any `*.jpg` search misses
+them; and most archives are **iCloud placeholders** at zero bytes — copying without forcing a
+download produces silently empty files.
 
----
+**FRESH 25 has no photo folder anywhere on disk or Drive.**
 
-## 2.3 The photos do not match the copy — needs your eyes
+### The enquiry form — one blocker
 
-Found during the visual review, and it is the biggest open content problem.
+The form is built, styled and wired in both languages, posting `FIRSTNAME`, `EMAIL`, `MESSAGE` and a
+required consent checkbox. **Its `action` is the placeholder `BREVO_FORM_ACTION_URL`.**
 
-The site's copy says Mallorca, beach, sea, "somewhere warm in March". **Seven of the eight photos
-show a grass pitch with fencing, bare winter trees and people in hoodies.** The file named
-`fresh26-beach.jpg` is a portrait of a player standing on grass — no beach in the frame at all.
+**The Brevo API key cannot go in the page.** This is a static site; a key in client-side JavaScript
+is readable by anyone, and that key is account-wide — it would expose every contact across Future
+Roundnet, ČS Dating and OSNOVY, and allow sending mail as Jakub. There is also no `/v3/forms` API
+endpoint (404), so the form cannot be created programmatically.
 
-Those filenames were assigned by an agent during the April v0.1 build and several are simply wrong.
-The originals are `Fresh26 Day1/Day2 …` from `real-team/rt-sports/future-roundnet-website/`, so they
-are plausibly a FRESH edition — but they are not the sunny-Mallorca imagery the copy promises.
+**Prepared in Brevo:** folder **REAL TEAM Sport** (id 10), list **`RT Sport – dopyty z webu`**
+(id 11), kept separate from the other brands.
 
-**Only `fresh24-pro.jpg` (the homepage hero) is verifiably Mallorca** — palms, hotel, poolside.
+Two ways to close it:
+1. Create the form in the Brevo UI targeting list 11, paste me the `sibforms.com/serve/…` action
+   URL. No key in the page, no JavaScript, no cookies on our domain. ~2 minutes.
+2. I stand up a small endpoint on the VPS holding the key server-side and the form posts there.
+   No Brevo UI needed, but it is another service to maintain on a set-and-forget site.
 
-**What I did:** removed every location and outcome claim from captions and alt text rather than
-label a photo as something I cannot see in it. "Beach courts, Mallorca" → "FRESH, tournament day".
-"FRESH 26, Mallorca. Fifth edition, sold out." → "FRESH 26." Mallorca still appears in body copy,
-where it is the company's own factual claim, not a caption asserting what a specific image shows.
+**Privacy pages already updated** in both languages: Brevo named as processor (Sendinblue SAS,
+Paris), consent as legal basis, and the accurate statement that nothing third-party loads on page
+open — only on submit.
 
-**Status:** Commander has Mallorca beach photos — *"That's not a problem."* Drop them into
-`assets/images/`, resize to 2000px / q62, and they replace the winter-pitch shots on the homepage
-split, the roundnet page and the travel page. Once they are in, the captions can name the place
-again, because the place will actually be in the frame.
-
-Still worth doing when the new photos land: correct the misleading filenames (`fresh26-beach.jpg`
-has no beach in it) so this trap does not fire on the next person to touch the folder.
-
----
-
-## 3. What changed from v0.1
-
-**Compliance**
-- Imprint was built on **German law** — § 5 TMG and § 55 Abs. 2 RStV — for a **Slovak** company.
-  Rewritten under **zákon č. 22/2004 Z. z.** § 4 (implementing Directive 2000/31/EC).
-  (§ 55 RStV was also superseded in Germany by the MStV in 2020, so it was doubly wrong.)
-- New `legal/travel-terms.html`: insolvency protection + the Directive (EU) 2015/2302 key-rights
-  summary. Did not exist before and is legally required.
-- Privacy rewritten to describe the site as actually built: no cookies, no analytics, no third-party requests.
-- **Google Fonts CDN removed.** It was loading typefaces from `fonts.gstatic.com`, which transmits
-  every EU visitor's IP to Google without consent. Fonts are now self-hosted from our own origin
-  (`assets/fonts/`, latin + latin-ext so Slovak and German diacritics render). This is why the
-  privacy page can honestly say the site makes zero third-party requests, and why no cookie banner
-  is needed.
-
-**Structure**
-- New pages: `travel.html`, three `legal/` pages, `404.html`, `de/` and `sk/` stubs.
-- `hreflang` + `x-default` on every page; language switcher in nav. German and Slovak URLs exist
-  and are wired now, so translations drop in later without touching links.
-- Old `impressum.html` / `datenschutz.html` kept as redirects so no existing link breaks.
-
-**Design**
-- Rebuilt stylesheet. Archivo + Inter, warm neutrals instead of flat grey, editorial hero,
-  a proof "ledger" strip, real timeline rail.
-- Emoji pillar icons removed. Purple-gradient placeholder blog heroes replaced with real photos.
-
-**Performance / assets**
-- `hero.jpeg` was a **byte-identical duplicate** of `fresh24-pro.jpg` (4.4 MB shipped twice). Removed.
-- Images were up to **8192px wide**; total payload **21 MB → 4.1 MB**. Originals untouched in
-  `real-team/rt-sports/future-roundnet-website/`; a backup of the previous copies is in the session scratchpad.
-- Two additional distinct photos pulled in so no image does double duty.
-
-**Fixed during build**
-- `.pillar p { flex: 1 }` was also matching the `01/02/03` index paragraph, stretching it by a
-  different amount per card and misaligning all three headings. Measured, scoped, re-verified equal.
-- Headings sat flush against body copy site-wide. Spacing rules added.
-- Legal `h1` was rendering at hero scale.
-
-**Verified**
-- No broken internal links across 15 HTML files.
-- No horizontal overflow at 320 / 375 / 768 px across all 11 real pages (Playwright).
-- Zero inline CSS. Zero references to German statutes, `.de` addresses, or the old registered name.
+### Still open
+- Slovak proofread by a native speaker before launch.
+- Two yellow placeholders: competent SOI inspectorate, public phone number.
+- Pavol to read `/pravne.html`, including whether omitting the insured sum is acceptable.
+- Confirm the FRESH 26 dates and that FRESH 27 registration is not yet open.
 
 ---
 
-## 4. Still open (not blocking, next session)
+## v4 — 2026-08-01: legal wording correction + navigation
 
-- German and Slovak translations (structure is ready and waiting).
-- A photo of Jakub actually working — coaching, organising, in the action. Still the biggest gap in
-  "Who we are"; right now that section leans on a FRESH action shot instead of him.
-- An old parents-era photo (skiing/handball, 90s). The age of the photo *is* the argument.
-- Analytics: none installed. If added, the privacy page must be rewritten first, not after.
-- Decide whether FRESH booking stays on futureroundnet.com long term (parked this session).
+**Commander, legally important:** REAL TEAM offers **športové CESTY (sports travel)**, not
+**športové kempy / podujatia (sports camps or events)**. A CK licence covers selling travel, not
+organising sporting events. Presenting the company as an event organiser is a legal problem, not a
+wording preference.
 
----
+**Applied across the whole site.** Verified zero occurrences of: `kemp`, `camp`, `turnaj`,
+`tournament`, `trofej`, `trophy`, `podujat`.
 
-## 5. Update 2026-08-01 (later) — blog removed entirely
+- FRESH is now described as *"naša vlastná športová cesta"* — a sports trip we organise under the
+  Future Roundnet brand — not a camp. The Mallorca Open tournament reference was removed entirely.
+- The Sóller group excursion stays: that is travel, which is exactly what the licence covers.
+- **Photos of trophies, medals and prize-giving deleted** from the repo: `f26-podium.jpg`,
+  `f26-trophy.jpg`, `f-medals.jpg`, plus `f26-crowd.jpg` (spectators at a competition). They
+  implied event organisation. 11 photos remain, all travel, training and community.
 
-The Commander confirmed the third post was fabricated too: *"the blog article, you can delete.
-That's also a fake story."*
+**Design restored** to the v1.1 language (full-bleed hero, editorial type, photo/text splits) after
+the v3 document layout was rejected: *"this page looks like the one from the 1990s."* Copy stayed
+lean — the original problem was text volume, not the design.
 
-**All three April posts were invented.** `fresh-behind-the-scenes.html` — the one that looked most
-credible, full of specific logistics — was no more real than the other two. It is archived with them
-in `~/Projects/real-team/rt-sports/fabricated-posts-2026-04/`.
+**Navigation bar added** (Zájazdy · Destinácie · FRESH · Dopyt + SK/EN), with a mobile burger and
+the small `js/site.js` back for that alone. Anchor links, single page.
 
-**The blog section is gone:** no `blog.html`, no `blog/` directory, no Stories in nav or footer.
-The site is now 4 content pages + 3 legal + plumbing.
+**Gallery reformatted** to a uniform 4-column grid — 8 images is exactly two full rows, and it
+degrades to 2 columns then 1. The previous mixed-width version left an orphan row.
 
-**The lesson, sharpened:** the most convincing of the three was the most dangerous. Specific numbers
-and concrete detail read as evidence of first-hand knowledge. They were evidence of nothing. Density
-of detail is not a signal of truth — it is often the opposite, because invention has no budget.
-
-## 6. Open at handover — design and copy rejected
-
-Commander verdict on v1.1: *"Your copy is absolutely terrible. I don't like the design at all."*
-Both are being reworked from a brainstorm, not patched. Specifically raised:
-
-- **Colour direction** — should the site carry the Future Roundnet palette (the pink/cyan of the
-  jerseys) rather than the REAL TEAM deep purple? Open question, see brainstorm.
-- **Copy volume** — too much text, too much of it marketing fluff. Minimise.
-
-This version is committed to `main` as a checkpoint, not as a candidate to ship.
+**Page order:** hero → what we arrange → destinations → FRESH → gallery → enquiry → footer.
+Company identity is off the main page apart from one trust line; everything else is on the legal page.
