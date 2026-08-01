@@ -172,3 +172,46 @@ degrades to 2 columns then 1. The previous mixed-width version left an orphan ro
 
 **Page order:** hero → what we arrange → destinations → FRESH → gallery → enquiry → footer.
 Company identity is off the main page apart from one trust line; everything else is on the legal page.
+
+---
+
+## v5 — form wired to Formspree, and a Brevo wall problem to be aware of
+
+**Commander: *"why sibforms? we have formspree!"*** — correct, and it removes the blocker entirely.
+The form now posts to the existing endpoint **`https://formspree.io/f/xzdaybpa`**, the same one
+jakubpopluhar.com uses. No API key in the page, no JavaScript, no cookies. Added a hidden
+`_subject` ("Dopyt z realteamsport.eu" / English equivalent) so RT Sport enquiries are
+distinguishable in the inbox, and a `_gotcha` honeypot for bots.
+
+**Privacy pages updated in both languages: the processor is now Formspree, Inc. (USA), not Brevo.**
+Named as a third-country transfer. The Brevo paragraph was removed — it would have been simply
+untrue.
+
+### ⚠ The Brevo "second sink" cannot be copied from the personal site as-is
+
+jakubpopluhar.com also fires a second, fire-and-forget call to
+`https://deflifeos.popluhar.at/api/brevo/subscribe` so the lead lands in Brevo as well. That proxy
+lives at `/root/brevo-proxy/server.js` on the VPS and holds the key server-side — a good pattern,
+and exactly what was proposed before knowing it existed.
+
+**But that proxy runs on the Hill Digital Brevo key.** Its `KINDS` map points at HD lists
+(6, 7, 5, 8, 13, 14). The RT Sport list created for this site — **`RT Sport – dopyty z webu`, id 11**
+— lives in the **JP Brevo account** (jakub@popluhar.at, registered REAL TEAM, s.r.o.), a different
+account entirely.
+
+Adding a `kind: 'rtsport' -> list 11` entry to that proxy would resolve list 11 **inside the HD
+account**, dropping REAL TEAM enquiries into whatever HD list happens to hold that id. The global
+config has an explicit hard wall between the two accounts: *"Never mix lists or keys."*
+
+**Not done, deliberately.** Editing the live HD proxy also risks breaking hill-digital.at's lead
+capture, which is production.
+
+If the Brevo record is wanted later, the clean route is a **separate proxy instance** for the JP
+account — its own port, its own env file with the JP key, its own nginx location — not a new branch
+inside the HD one. Formspree already delivers the enquiry by email in the meantime, and given the
+Commander's own estimate of the volume ("nobody will write there anyway"), that is likely enough.
+
+**Worth considering:** a dedicated Formspree form for realteamsport.eu rather than sharing
+`xzdaybpa` with the personal site. Different legal entity (REAL TEAM, s.r.o. vs the personal brand),
+and it would keep the submission archives apart. The `_subject` line is a workaround, not a
+separation.

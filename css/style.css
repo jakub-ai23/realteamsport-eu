@@ -819,3 +819,6 @@ strong { color: var(--ink); font-weight: 600; }
 /* --- Trust line ----------------------------------------------------------- */
 .trust { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,.18); font-size: .85rem; color: rgba(255,255,255,.6); }
 .trust a { color: rgba(255,255,255,.85); }
+
+/* Honeypot: bots fill it, humans never see it. Not display:none — some bots skip those. */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
