@@ -397,14 +397,10 @@ strong { color: var(--ink); font-weight: 600; }
 .hero-sm { min-height: min(56vh, 520px); }
 .hero-sm h1 { max-width: 20ch; }
 
-/* Per-page hero images. Kept here rather than inline so the no-inline-CSS
-   rule holds; pages stay pure structure. */
-.hero-media-home     { background-image: url('../assets/images/fresh23-net-action.jpg'); background-position: center 45%; }
-.hero-media-roundnet { background-image: url('../assets/images/fresh23-group-beach.jpg'); background-position: center 40%; }
-.hero-media-travel   { background-image: url('../assets/images/fresh26-group.jpg'); }
-.hero-media-camp     { background-image: url('../assets/images/fresh26-day2.jpg'); }
-.hero-media-water    { background-image: url('../assets/images/fresh26-sunset.jpg'); }
-.hero-media-club     { background-image: url('../assets/images/fresh26-coaching.jpg'); }
+/* Per-page hero image. Kept here rather than inline so the no-inline-CSS
+   rule holds; pages stay pure structure. (The other hero-media-* modifiers
+   referenced pages deleted in the v2 rebuild — removed 2026-08-01.) */
+.hero-media-home { background-image: url('../assets/images/fresh24-group.jpg'); background-position: center 62%; }
 
 /* --- Ledger (the proof strip under the hero) ------------------------------ */
 
@@ -649,6 +645,10 @@ strong { color: var(--ink); font-weight: 600; }
 }
 .data-list dt { font-weight: 600; color: var(--ink); }
 .data-list dd { color: var(--ink-soft); }
+/* Legal-page markup wraps each dt/dd pair in a div for readability in source;
+   display:contents lets the grid place the dt/dd directly instead of the
+   wrapper, so the two-column label/value layout still works. */
+.data-list > div { display: contents; }
 
 /* Visible placeholder for facts that are not yet confirmed.
    Deliberately loud — it must never ship unnoticed. */
@@ -734,6 +734,9 @@ strong { color: var(--ink); font-weight: 600; }
 @media (max-width: 768px) {
   .nav-links, .lang { display: none; }
   .burger { display: flex; }
+  /* Legal/404 pages have no nav-links and no burger — their language
+     switcher is the only nav content, so it must stay visible. */
+  .nav-simple .lang { display: flex; padding-left: 0; border-left: 0; }
   .ledger-grid { grid-template-columns: repeat(2, 1fr); }
   .ledger-item:nth-child(2) { border-right: 0; }
   .ledger-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
@@ -765,9 +768,6 @@ strong { color: var(--ink); font-weight: 600; }
   body { color: #000; }
   a { text-decoration: underline; }
 }
-
-/* --- Per-page hero images (no inline CSS) --------------------------------- */
-.hero-media-home { background-image: url('../assets/images/fresh24-group.jpg'); background-position: center 62%; }
 
 /* --- Gallery -------------------------------------------------------------- */
 /* Uniform grid on purpose: 8 images over 4 columns is exactly two full rows at
