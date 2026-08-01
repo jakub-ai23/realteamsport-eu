@@ -215,3 +215,26 @@ Commander's own estimate of the volume ("nobody will write there anyway"), that 
 `xzdaybpa` with the personal site. Different legal entity (REAL TEAM, s.r.o. vs the personal brand),
 and it would keep the submission archives apart. The `_subject` line is a workaround, not a
 separation.
+
+---
+
+## v6 — separate JP Brevo proxy installed (2026-08-01)
+
+Commander approved a **separate instance for the JP account, own port**. Installed and verified.
+
+- `brevo-proxy-jp` on the VPS, `/root/brevo-proxy-jp`, port **8098**, under PM2, `pm2 save` done so
+  it survives reboot. nginx location `/api/brevo-jp/`. The Hill Digital proxy on 8097 was **not
+  touched**; nginx config backed up to `/root/deflifeos.nginx.bak-2026-08-01` before the edit and
+  `nginx -t` passed before reload. HD `/api/brevo/health` re-checked after reload: still 200.
+- Own `.env` (chmod 600) with only the JP key. PM2 does not load `.env`, which is why the first
+  start crash-looped on `BREVO_API_KEY missing`; the server now parses it itself, zero dependencies.
+- Guards verified live: consent required, email validated, honeypot silently accepted, CORS limited
+  to realteamsport.eu.
+- Created the `MESSAGE` text attribute in the JP account so the enquiry text has somewhere to land.
+- **End-to-end tested from a real browser**: form submit → proxy → contact in list 11 with
+  FIRSTNAME, MESSAGE, SOURCE, SIGNUP_DATE, CONSENT_BASIS. Both test contacts deleted afterwards;
+  list 11 is back to 0.
+
+Formspree remains the primary path — the form posts to it normally. The Brevo call is a
+consent-gated, fire-and-forget `keepalive` copy that cannot block or break the submit. Both
+privacy pages name both processors.
