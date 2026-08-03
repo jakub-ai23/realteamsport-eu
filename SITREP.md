@@ -8,7 +8,7 @@
 
 | Strang | Stand | Lage |
 |---|---|---|
-| `rt-sport-website` | 2026-08-03 09:56 · heute | SEO/GEO, Ponuka-Wortwahl, FR-Logo, Vedenie-Block. **Committet und auf `main` gepusht, aber weiterhin NICHT live** (Pages serviert `gh-pages`). Wartet auf SK-Korrektur und Pavol. |
+| `rt-sport-website` | 2026-08-03 10:04 · heute | SEO/GEO, Ponuka-Wortwahl, FR-Logo, Vedenie-Block. **Committet und auf `main` gepusht, aber weiterhin NICHT live** (Pages serviert `gh-pages`). Wartet auf SK-Korrektur und Pavol. |
 
 ---
 
@@ -74,6 +74,17 @@ zwei Aenderungen sind noch nicht einmal committet.
   plus `Person`-Schema. **Titel: konateľ / CEO, ausdruecklich NICHT founder** — der Commander hat
   die Firma uebernommen, nicht gegruendet. Absichtlich kurz, soll spaeter wachsen.
 - **Gepusht auf `main`.** Das veroeffentlicht nichts: Pages serviert weiter `gh-pages`.
+- **Bio im Vedenie-Block ersetzt (2026-08-03 10:04).** Die erste Fassung war dem Commander zu blass. Neue
+  Fassung aus belegten Fakten: vyštudovaný učiteľ telesnej výchovy (`memory/personal.md`, M.Ed.),
+  **bývalý reprezentant Slovenska vo florbale** (`memory/popluhar-family.md`), roundnet auf
+  Turnieren in Europa (57 indexierte Turniere in `memory/fitness.md`), **vyše 50 krajín** (Zahl
+  kommt vom Commander im Gespraech, nirgends abgelegt). `Person`-Schema traegt dieselbe Kurzbio.
+  `check-ai-tells.py`: SK-Startseite **0 Treffer**, EN 8 Advisory (Partizip-Fuellsel, groesstenteils
+  Altbestand).
+- **Eigener Pruef-Fehler, fuer die Zukunft:** auf Port 8899 lief noch ein Server aus
+  `builds/websites/future-roundnet`; der neue konnte nicht binden und ein Screenshot-Lauf ging gegen
+  die falsche Seite. **Vor jedem Preview-Lauf den Titel der ausgelieferten Seite pruefen**
+  (`curl -s localhost:8899 | grep -i '<title>'`), nicht nur den HTTP-Status.
 
 ## Aktueller Stand
 - **Quellcode:** `~/Projects/builds/websites/rt-sport`, Branch `main`.
@@ -125,4 +136,4 @@ zwei Aenderungen sind noch nicht einmal committet.
 - Ob die Seite ueberhaupt live gehen soll, oder vorerst lokal bleibt.
 
 ---
-*Letzte Aenderung: 2026-08-03 09:56*
+*Letzte Aenderung: 2026-08-03 10:04*
