@@ -8,13 +8,13 @@
 
 | Strang | Stand | Lage |
 |---|---|---|
-| `rt-sport-website` | 2026-08-01 20:49 · heute | Website fertig. **Nicht live, alles lokal.** Zwei Aenderungen sind nicht einmal committet. Wartet nur noch auf SK-Korrektur und Pavol. |
+| `rt-sport-website` | 2026-08-03 09:56 · heute | SEO/GEO, Ponuka-Wortwahl, FR-Logo, Vedenie-Block. **Committet und auf `main` gepusht, aber weiterhin NICHT live** (Pages serviert `gh-pages`). Wartet auf SK-Korrektur und Pavol. |
 
 ---
 
 # Strang: rt-sport-website
 
-*Stand: 2026-08-01 20:49 · Arbeitsfenster war 12:06–14:00, 20 min netto, autonom*
+*Stand: 2026-08-03 09:48 · Vorgaenger-Fenster 2026-08-01 20:49*
 
 ## Lage in einem Satz
 realteamsport.eu ist als zweisprachige Ein-Seiten-Website fertig, alle Platzhalter sind raus, aber
@@ -46,13 +46,43 @@ zwei Aenderungen sind noch nicht einmal committet.
   Commander **Telefonnummer und SOI-Inspektorat gestrichen** — beide gelben Platzhalter entfernt.
   Auf der Seite steht jetzt kein einziger Platzhalter mehr.
 
+## Nachtrag 2026-08-03 09:48: Ponuka-Wortwahl + SEO/GEO
+
+- **Wortwahl auf Ponuka umgestellt** (Commander-Entscheid, alle drei Stellen): Nav und
+  Sektionslabel `Kontakt` → `Ponuka`, Hero-CTA `Napíšte nám` → `Chcem ponuku`, Formular-Button
+  `Odoslať správu` → `Žiadam ponuku`, Formspree-`_subject` → `Žiadosť o ponuku z realteamsport.eu`.
+  EN spiegelt: `Get a quote` / `Request a quote`. **Achtung:** das dreht die Umbenennung
+  `Dopyt → Kontakt` aus Commit `71b5d26` teilweise wieder um.
+- **futureroundnet.com** stand schon im Footer; zusaetzlich jetzt im FRESH-Abschnitt (Markenname
+  verlinkt + eigene `link-arrow`-Zeile am Ende des Blocks), beide Sprachen.
+- **SEO:** JSON-LD in allen vier Seiten, `robots.txt`, `sitemap.xml` (mit hreflang-Alternates),
+  Titel und Descriptions geschaerft, zwei kaputte `<title>` repariert
+  (`Právne informácie ,  REAL TEAM` — Artefakt aus dem Em-Dash-Lauf vom 01.08.).
+- **GEO:** sichtbarer FAQ-Block mit 7 Fragen je Sprache (`#faq`, neue `.faq`-Styles) plus
+  `FAQPage`-Schema und `llms.txt`. Jede Antwort belegbar aus der Seite oder `pravne.html`.
+- **Bewusst NICHT gemacht:** keine Optimierung auf `kemp` / `sústredenie` / `podujatie`
+  (CK-Lizenz deckt Reiseverkauf, nicht Events), kein `foundingDate` im Schema (aktenkundig ist
+  nur „lizenziert seit 1994"), kein Analytics, keine externen Requests.
+- **Geprueft:** JSON-LD in allen vier Seiten valide, sitemap valides XML, 0 tote Links,
+  kein horizontaler Ueberlauf bei 320/375/768/1440 in SK und EN (Playwright), SK/EN strukturell
+  identisch (5 Sektionen, 6 h2, 13 h3, 7 FAQ-Items je Seite).
+  Screenshots: `preview/2026-08-03-*.png`.
+- **Sprachentscheid:** kein `/de/` und kein `/cs/`. EN bleibt die einzige zweite Sprache.
+- **Nachschlag im selben Fenster:** Future-Roundnet-**Logo** im FRESH-Abschnitt (`.fr-mark`,
+  schwarz auf transparent, 400px aus `Logo_FR_black2.png`, ersetzt die reine Textzeile) und ein
+  neuer **Vedenie-Block** (`#vedenie`, sand, zwischen FAQ und Ponuka) mit drei Saetzen zur Person
+  plus `Person`-Schema. **Titel: konateľ / CEO, ausdruecklich NICHT founder** — der Commander hat
+  die Firma uebernommen, nicht gegruendet. Absichtlich kurz, soll spaeter wachsen.
+- **Gepusht auf `main`.** Das veroeffentlicht nichts: Pages serviert weiter `gh-pages`.
+
 ## Aktueller Stand
 - **Quellcode:** `~/Projects/builds/websites/rt-sport`, Branch `main`.
-  Letzter Commit `0e299d3`. **Nicht committet: `pravne.html`, `en/legal.html`** (Streichung
-  Telefon + Inspektorat). Das ist Absicht — Commander: *"nechaj to ešte všetko ako local"*.
+  Letzter Commit `325dc16`. **Nicht committet: `index.html`, `en/index.html`, `pravne.html`,
+  `en/legal.html`, `css/style.css`, `CLAUDE.md`, neu `robots.txt`, `sitemap.xml`, `llms.txt`,
+  `preview/2026-08-03-*.png`.** Das ist Absicht — Commander: *"nechaj to ešte všetko ako local"*.
 - **Live:** unveraendert der alte Maerz-Platzhalter. Pages-Quelle `gh-pages`, Arbeit auf `main`.
 - **Umfang:** `index.html` (SK, primaer) · `en/index.html` · `pravne.html` · `en/legal.html` ·
-  `404.html`. Mehr nicht.
+  `404.html` · `robots.txt` · `sitemap.xml` · `llms.txt`. Mehr nicht.
 - **VPS:** `brevo-proxy-jp`, `/root/brevo-proxy-jp`, Port **8098**, PM2 (`pm2 save` erledigt),
   nginx `/api/brevo-jp/`. HD-Proxy auf 8097 unangetastet, nginx-Backup
   `/root/deflifeos.nginx.bak-2026-08-01`. **Laeuft bereits produktiv** — das ist der einzige Teil
@@ -64,7 +94,7 @@ zwei Aenderungen sind noch nicht einmal committet.
 
 ## Blocker
 - **SK-Korrektur durch den Commander.** Der Text ist von mir und geht an eine slowakische Behoerde.
-  Besonders die Rechtsbegriffe.
+  Besonders die Rechtsbegriffe. **Neu dazugekommen:** 7 FAQ-Antworten und die Ponuka-Formulierungen.
 - **Pavol (afes s.r.o.)** soll `pravne.html` einmal lesen, insbesondere ob das Weglassen der
   Versicherungssumme (15 000 EUR) in Ordnung ist.
 - *(Erledigt, nicht mehr blockierend: Telefonnummer und SOI-Inspektorat wurden vom Commander
@@ -72,9 +102,11 @@ zwei Aenderungen sind noch nicht einmal committet.
 
 ## Naechster Schritt (genauer Einstiegspunkt)
 1. Lokal ansehen: `cd ~/Projects/builds/websites/rt-sport && python3 -m http.server 8899`,
-   dann `http://localhost:8899/`.
-2. SK-Text Korrektur lesen lassen, Pavol auf `pravne.html`.
-3. Erst dann: die zwei offenen Aenderungen committen und pushen.
+   dann `http://localhost:8899/`. **Stylesheet hart neu laden** (Cmd+Shift+R), sonst zeigt der
+   Browser die alte `style.css` und der FAQ-Block erscheint ohne Linien und ohne Abstaende.
+2. SK-Text Korrektur lesen lassen — **jetzt zusaetzlich die 7 FAQ-Antworten und die Ponuka-Woerter**,
+   Pavol auf `pravne.html`.
+3. Erst dann: die offenen Aenderungen committen und pushen.
 4. **Ganz zuletzt** Pages umstellen:
    `gh api -X PUT repos/jakub-ai23/realteamsport-eu/pages -f source[branch]=main -f source[path]=/`
    **Nicht vorher** — das veroeffentlicht `main` sofort und ohne Preview.
@@ -93,4 +125,4 @@ zwei Aenderungen sind noch nicht einmal committet.
 - Ob die Seite ueberhaupt live gehen soll, oder vorerst lokal bleibt.
 
 ---
-*Letzte Aenderung: 2026-08-01 20:49*
+*Letzte Aenderung: 2026-08-03 09:56*

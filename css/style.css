@@ -504,6 +504,38 @@ strong { color: var(--ink); font-weight: 600; }
 }
 .pillar .link-arrow { margin-top: 0.35rem; }
 
+/* --- Future Roundnet brand mark ------------------------------------------- */
+/* The FR logo only ever appears on a light section: the asset is solid black
+   with no light variant here. Do not move it onto .section-ink. */
+.fr-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+  text-decoration: none;
+}
+.fr-mark img { height: 2.1rem; width: auto; }
+.fr-mark span {
+  font-family: var(--display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--purple);
+}
+.fr-mark:hover span { text-decoration: underline; }
+
+/* --- FAQ ------------------------------------------------------------------ */
+/* Hairline-separated rows, not cards: the answers are reference material, and a
+   card grid would read as three marketing tiles again. */
+.faq { border-top: 1px solid var(--line); }
+.faq-item {
+  padding-block: clamp(1.25rem, 2.5vw, 1.75rem);
+  border-bottom: 1px solid var(--line);
+}
+.faq-item h3 { margin-bottom: 0.45rem; }
+.faq-item p { font-size: 0.96rem; max-width: var(--measure); }
+
 /* --- Timeline ------------------------------------------------------------- */
 
 .timeline { position: relative; padding-left: clamp(1.5rem, 4vw, 2.5rem); }

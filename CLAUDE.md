@@ -45,11 +45,35 @@ Local preview: `python3 -m http.server 8899` then `http://localhost:8899/`
 
 ```
 index.html · en/index.html · pravne.html · en/legal.html · 404.html
+robots.txt · sitemap.xml · llms.txt   (SEO/GEO, added 2026-08-03)
 css/       style.css (all shared styles) · fonts.css (self-hosted @font-face)
-assets/    images/ (2000px max, q62) · fonts/ (4 woff2, latin + latin-ext)
+assets/    images/ (2000px max, q62; plus futureroundnet-logo.png 400px) · fonts/ (4 woff2)
 preview/   screenshots — not part of the site
 PLAN-v1.md · REVIEW-NOTES.md
 ```
+
+## SEO / GEO
+
+- **Never optimise into "kemp", "sústredenie" or "podujatie".** The CK licence covers selling
+  travel, not organising events. The site says **športové cesty**, and so does every title,
+  description, FAQ answer and schema field. This costs traffic on the stronger keyword and is
+  deliberate.
+- **Structured data lives inline as JSON-LD** in each page's `<head>`: one `Organization`
+  (`@id` `https://realteamsport.eu/#organization`, the entity anchor for AI answer engines),
+  plus `WebSite`, `WebPage` and `FAQPage`. The legal pages repeat the Organization block by
+  `@id` because that is where the registry facts are.
+- **Every schema value must trace to a page or to `~/Projects/real-team/CLAUDE.md`.**
+  `foundingDate` is deliberately absent: the record says "licensed since 1994", which is not
+  the same claim as the company's founding year.
+- **`llms.txt`** is the plain-text brief for LLM crawlers. Update it when the company facts,
+  the destination list or the FRESH dates change, or it starts lying on our behalf.
+- **The Future Roundnet logo (`assets/images/futureroundnet-logo.png`) is black on transparent.**
+  It only works on a light section. There is no light variant in this repo, so do not move the
+  `.fr-mark` block onto `.section-ink`. Source: `~/Projects/real-team/rt-sports/future-roundnet-website/site/assets/Logo_FR_black2.png`.
+- **The leadership block (`#vedenie`) says CEO / konateľ, never founder.** Jakub took the company
+  over; he did not found it. The block is deliberately three sentences and meant to grow later.
+- **The FAQ block is the GEO surface.** Answers stay short, factual and self-contained, because
+  an answer engine quotes one paragraph, not the page.
 
 ## Design System
 
