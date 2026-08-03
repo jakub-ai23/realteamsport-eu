@@ -8,7 +8,7 @@
 
 | Strang | Stand | Lage |
 |---|---|---|
-| `rt-sport-website` | 2026-08-03 10:12 · heute | SEO/GEO, Ponuka-Wortwahl, FR-Logo, Vedenie-Block. **Committet und auf `main` gepusht, aber weiterhin NICHT live** (Pages serviert `gh-pages`). Wartet auf SK-Korrektur und Pavol. |
+| `rt-sport-website` | 2026-08-03 10:22 · heute | **LIVE auf realteamsport.eu.** Pages-Quelle auf `main` umgestellt, ab jetzt ist jeder Push eine Veroeffentlichung. SK-Korrektur und Pavol stehen weiter aus. |
 
 ---
 
@@ -112,6 +112,21 @@ zwei Aenderungen sind noch nicht einmal committet.
 - **Geprueft:** 0 tote Links, 0 Inline-Styles, 0 Google-Fonts, 0 Platzhalter, 0 Em-Dashes,
   kein horizontaler Ueberlauf bei 320/375/768, SK/EN strukturell identisch.
 
+## Livegang 2026-08-03 10:22
+
+- Commander: *"Ok live gehen los"* - trotz offener SK-Korrektur und ohne Pavol. Bewusste
+  Entscheidung, von mir vorher benannt. Umkehrbar.
+- Pages-Quelle `gh-pages` → `main`. **Wichtig: der Quellwechsel allein baut nicht.** Nach 5 Minuten
+  lief live noch der Maerz-Platzhalter; erst `gh api -X POST .../pages/builds` hat den Build
+  ausgeloest (Commit `78866cf`).
+- **Ab jetzt ist jeder Push auf `main` eine Veroeffentlichung.** Kein Staging mehr.
+  Rollback: Quelle zurueck auf `gh-pages` (haelt weiter den Maerz-Stand `cf985dc`).
+- **Live abgenommen:** 10/10 URLs 200 (beide Sprachen, Rechtsseiten, robots, sitemap, llms.txt,
+  FR-Logo, 404), http→https 301, HTTPS erzwungen, 7 FAQ-Items ausgeliefert, Schema-Graph komplett
+  (Organization · Person · WebSite · WebPage · FAQPage), kein Ueberlauf bei 375 und 1440 in SK+EN,
+  keine toten externen Links und **null Requests an fremde Hosts** - damit stimmt die Aussage auf
+  der Datenschutzseite auch live.
+
 ## Blocker
 - **SK-Korrektur durch den Commander.** Der Text ist von mir und geht an eine slowakische Behoerde.
   Besonders die Rechtsbegriffe. **Neu dazugekommen:** 7 FAQ-Antworten und die Ponuka-Formulierungen.
@@ -145,4 +160,4 @@ zwei Aenderungen sind noch nicht einmal committet.
 - Ob die Seite ueberhaupt live gehen soll, oder vorerst lokal bleibt.
 
 ---
-*Letzte Aenderung: 2026-08-03 10:12*
+*Letzte Aenderung: 2026-08-03 10:22*

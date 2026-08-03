@@ -25,11 +25,15 @@ the three separate legal pages, DE stubs, old redirects, all JavaScript.
 
 ## Status
 
-**v2 built, NOT deployed.** Read `REVIEW-NOTES.md` first — open placeholders, missing photos,
-and the Slovak proofread are listed there.
+**LIVE since 2026-08-03 10:22.** Pages source was switched from `gh-pages` to `main`, so **every push to
+`main` now publishes immediately.** There is no staging step any more: preview locally, get an
+explicit OK, then push.
 
-Pages serves `gh-pages`; work is on `main`. That is why the live domain still shows the March
-placeholder. Do not switch the source until this version is approved.
+Rollback: `gh api -X PUT repos/jakub-ai23/realteamsport-eu/pages -f "source[branch]=gh-pages" -f "source[path]=/"`
+(`gh-pages` still holds the March placeholder at `cf985dc`).
+
+**Still open, and the Commander went live knowing it:** his own Slovak proofread of the whole
+copy, and Pavol reading `pravne.html`. See `SITREP.md`.
 ## Deploy
 
 ```bash
@@ -37,7 +41,11 @@ cd ~/Projects/builds/websites/rt-sport && git add . && git commit -m "message" &
 ```
 
 Git remote: `jakub-ai23/realteamsport-eu` · CNAME: `realteamsport.eu`
-Pages source: `gh-pages` (see above — must be reconciled with `main` before launch).
+Pages source: **`main`** — a push is a publish.
+
+If a push does not appear live, the Pages build did not fire (changing the source alone does not
+trigger one). Force it: `gh api -X POST repos/jakub-ai23/realteamsport-eu/pages/builds`,
+then poll `gh api repos/jakub-ai23/realteamsport-eu/pages/builds --jq '.[0].status'`.
 
 Local preview: `python3 -m http.server 8899` then `http://localhost:8899/`
 
