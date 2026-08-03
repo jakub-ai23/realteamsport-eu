@@ -8,7 +8,7 @@
 
 | Strang | Stand | Lage |
 |---|---|---|
-| `rt-sport-website` | 2026-08-03 10:22 · heute | **LIVE auf realteamsport.eu.** Pages-Quelle auf `main` umgestellt, ab jetzt ist jeder Push eine Veroeffentlichung. SK-Korrektur und Pavol stehen weiter aus. |
+| `rt-sport-website` | 2026-08-03 10:38 · heute | **LIVE.** Audit-Durchlauf: 8 FAIL → **0 FAIL**, Bilder 3,7 → 1,7 MB. SK-Korrektur und Pavol stehen weiter aus. |
 
 ---
 
@@ -127,6 +127,37 @@ zwei Aenderungen sind noch nicht einmal committet.
   keine toten externen Links und **null Requests an fremde Hosts** - damit stimmt die Aussage auf
   der Datenschutzseite auch live.
 
+## Audit-Durchlauf 2026-08-03 10:38 (Skill `website-health-check`)
+
+Bericht: `~/Projects/ops/website-audit/reports/2026-08-03-rt-sport.md`. **8 FAIL / 35 WARN → 0 FAIL / 2 WARN.**
+
+**Echt behoben:** Bilder 3,7 → 1,7 MB (alle unter 300 KB, Seitengewicht unter Budget),
+`width`/`height` auf allen Bildern, `loading=lazy` aufs FR-Logo, Meta-Descriptions von 188/179 auf
+161/146 Zeichen gekuerzt, OG-Tags auf beide Rechtsseiten, Meta-Description auf die 404,
+`f26-handshake.jpg` (unbenutzt) geloescht. GEO: robots.txt adressiert GPTBot, OAI-SearchBot,
+ChatGPT-User, PerplexityBot, ClaudeBot, Claude-Web, Google-Extended, Applebot-Extended explizit;
+`llms.txt` hat jetzt einen Abschnitt "Who runs it" mit Titel, Sport-Vita und den frueheren
+Arbeitgebern.
+
+**Zwei Fehlalarme in die Registry geschrieben statt sie zu ignorieren** (`ops/website-audit/sites.json`):
+- **`tracker_patterns` auf LEER.** 5 FAIL wegen fehlendem Beacon waren falsch: diese Site misst
+  bewusst nichts, `pravne.html` sagt woertlich "keine Analysewerkzeuge, keine fremden Requests".
+  Ein Beacon wuerde die Seite zur Luege machen. Wer je messen will: erst `pravne.html` aendern.
+- **`404.html` als `unlisted`.** Waisenseite, noindex, nicht in der sitemap, kein canonical: genau
+  so gehoert eine Fehlerseite gebaut. Sie bekommt weiter die technischen Pruefungen.
+
+**Bewusst stehen gelassen (2 WARN):**
+- `en/index.html` verlinkt kein `pravne.html`, sondern `en/legal.html`, also dieselben Pflichtangaben
+  auf Englisch. Inhaltlich erfuellt, das Werkzeug kann nur eine flache Liste ohne Sprachzuordnung.
+- 18 AI-Tell-Fundstellen. **SK-Startseite 0**, EN-Startseite 7 (Partizip-Fuellsel), Rechtsseiten 9 -
+  dort bricht der Satztrenner an "zákona č. 22/2004 Z. z.", das ist ein Parser-Artefakt und kein Stil.
+  Nicht auf null optimiert, das wuerde funktionierende Rhetorik entfernen.
+
+**Was der Audit NICHT kann und offen bleibt:** echte Ladezeiten (LCP/INP/CLS), Farbkontraste und
+Tap-Ziel-Groessen nach WCAG 2.2 AA. Beides nur im echten Browser messbar. Und: die Seite ist bei
+**Google Search Console noch nicht angemeldet**, die sitemap also nirgends eingereicht.
+Das kann nur der Commander selbst, es braucht seinen Google-Login.
+
 ## Blocker
 - **SK-Korrektur durch den Commander.** Der Text ist von mir und geht an eine slowakische Behoerde.
   Besonders die Rechtsbegriffe. **Neu dazugekommen:** 7 FAQ-Antworten und die Ponuka-Formulierungen.
@@ -160,4 +191,4 @@ zwei Aenderungen sind noch nicht einmal committet.
 - Ob die Seite ueberhaupt live gehen soll, oder vorerst lokal bleibt.
 
 ---
-*Letzte Aenderung: 2026-08-03 10:22*
+*Letzte Aenderung: 2026-08-03 10:38*
