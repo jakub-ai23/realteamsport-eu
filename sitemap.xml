@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://realteamsport.eu/</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://realteamsport.eu/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://realteamsport.eu/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://realteamsport.eu/"/>
+  </url>
+  <url>
+    <loc>https://realteamsport.eu/en/</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://realteamsport.eu/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://realteamsport.eu/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://realteamsport.eu/"/>
+  </url>
+  <url>
+    <loc>https://realteamsport.eu/pravne.html</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://realteamsport.eu/pravne.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://realteamsport.eu/en/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://realteamsport.eu/pravne.html"/>
+  </url>
+  <url>
+    <loc>https://realteamsport.eu/en/legal.html</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://realteamsport.eu/pravne.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://realteamsport.eu/en/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://realteamsport.eu/pravne.html"/>
+  </url>
+</urlset>

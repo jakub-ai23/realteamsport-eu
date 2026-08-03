@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://realteamsport.eu/sitemap.xml
