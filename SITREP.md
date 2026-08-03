@@ -8,7 +8,7 @@
 
 | Strang | Stand | Lage |
 |---|---|---|
-| `rt-sport-website` | 2026-08-03 10:04 · heute | SEO/GEO, Ponuka-Wortwahl, FR-Logo, Vedenie-Block. **Committet und auf `main` gepusht, aber weiterhin NICHT live** (Pages serviert `gh-pages`). Wartet auf SK-Korrektur und Pavol. |
+| `rt-sport-website` | 2026-08-03 10:12 · heute | SEO/GEO, Ponuka-Wortwahl, FR-Logo, Vedenie-Block. **Committet und auf `main` gepusht, aber weiterhin NICHT live** (Pages serviert `gh-pages`). Wartet auf SK-Korrektur und Pavol. |
 
 ---
 
@@ -81,6 +81,15 @@ zwei Aenderungen sind noch nicht einmal committet.
   kommt vom Commander im Gespraech, nirgends abgelegt). `Person`-Schema traegt dieselbe Kurzbio.
   `check-ai-tells.py`: SK-Startseite **0 Treffer**, EN 8 Advisory (Partizip-Fuellsel, groesstenteils
   Altbestand).
+- **Bio v3 (2026-08-03 10:12), vom Commander diktiert.** Drei Korrekturen: (1) **kein** "vašu cestu
+  vybavujete priamo so mnou" mehr, er wird ein Team haben und die Ich-Formulierung liess die Firma
+  klein wirken. Ich habe die Team-Behauptung NICHT durch eine andere ersetzt, weil das Team laut
+  seiner eigenen Formulierung erst kommt ("budem mať") - die Seite sagt jetzt schlicht nichts
+  darueber. (2) Titel oeffentlich **majiteľ / owner**, nicht konateľ, nicht founder; `pravne.html`
+  behaelt konateľ, das ist der gesetzliche Begriff. (3) Neu belegt: Roundnet auf hohem Niveau,
+  **potápač**, **skáče padákom**, **50 krajín sveta**, und als staerkstes Argument die frueheren
+  Arbeitgeber **TUI Magic Life · Lebenslust Touristik · SegTour München**. Alles in
+  `memory/personal.md` unter "Bio facts" abgelegt. `check-ai-tells.py` SK-Startseite: 0 Treffer.
 - **Eigener Pruef-Fehler, fuer die Zukunft:** auf Port 8899 lief noch ein Server aus
   `builds/websites/future-roundnet`; der neue konnte nicht binden und ein Screenshot-Lauf ging gegen
   die falsche Seite. **Vor jedem Preview-Lauf den Titel der ausgelieferten Seite pruefen**
@@ -136,4 +145,4 @@ zwei Aenderungen sind noch nicht einmal committet.
 - Ob die Seite ueberhaupt live gehen soll, oder vorerst lokal bleibt.
 
 ---
-*Letzte Aenderung: 2026-08-03 10:04*
+*Letzte Aenderung: 2026-08-03 10:12*
