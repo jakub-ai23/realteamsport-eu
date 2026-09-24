@@ -753,12 +753,70 @@ strong { color: var(--ink); font-weight: 600; }
   color: rgba(255, 255, 255, 0.45);
 }
 
+/* --- Roundnet reels (two portrait clips, pattern: ops/references/web-reels-rail-pattern.md) --- */
+
+.reels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 480px;
+  justify-self: end;
+  width: 100%;
+}
+.reel {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: #1c1922;
+}
+.reel video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.reel-num {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.8rem;
+  font-family: var(--display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+.rules {
+  list-style: none;
+  padding: 0;
+  margin: 1.75rem 0 0;
+  display: grid;
+  gap: 0.9rem;
+}
+.rules li {
+  padding-left: 1.4rem;
+  position: relative;
+}
+.rules li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.55rem;
+  height: 0.55rem;
+  border: 2px solid #b78bdd;
+  border-radius: 50%;
+}
+.rules strong { color: #fff; }
+
 /* --- Responsive ----------------------------------------------------------- */
 
 @media (max-width: 900px) {
   .split, .split-wide { grid-template-columns: 1fr; gap: 2.5rem; }
   .split-flip .split-media { order: 0; }
   .split-media img { aspect-ratio: 3 / 2; }
+  .reels { justify-self: stretch; max-width: none; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
 }

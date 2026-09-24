@@ -1,5 +1,5 @@
-/* REAL TEAM — mobile navigation, and a second sink for enquiries.
-   No tracking, no dependencies, nothing runs on page load. */
+/* REAL TEAM — mobile navigation, roundnet reels, and a second sink for enquiries.
+   No tracking, no dependencies, no requests to other servers on page load. */
 (function () {
   'use strict';
 
@@ -19,6 +19,23 @@
     });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
     window.addEventListener('resize', function () { if (window.innerWidth > 768) setOpen(false); });
+  }
+
+  // ---- Roundnet reels: play only while on screen, never for reduced motion ----
+  // Without JS the poster frame shows, which is enough.
+  var reels = document.querySelectorAll('.reel video');
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reels.length && 'IntersectionObserver' in window && !still) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var v = e.target;
+        if (e.intersectionRatio > 0.55) {
+          if (v.preload !== 'auto') { v.preload = 'auto'; v.load(); }
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+        } else { v.pause(); }
+      });
+    }, { threshold: [0, 0.55] });
+    Array.prototype.forEach.call(reels, function (v) { io.observe(v); });
   }
 
   // ---- Enquiry: second sink into Brevo (JP account) ----
