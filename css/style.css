@@ -826,6 +826,7 @@ strong { color: var(--ink); font-weight: 600; }
 /* Own line, so the Future Roundnet mark below never sits beside the button. */
 .fresh-cta { display: flex; width: fit-content; }
 .gallery-dive { margin-top: clamp(2.5rem, 5vw, 4rem); }
+.dive-note { margin-top: 0.85rem; font-size: 0.8rem; color: rgba(255, 255, 255, 0.55); }
 
 /* --- Responsive ----------------------------------------------------------- */
 
