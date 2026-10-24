@@ -1,0 +1,4 @@
+# The repo is public and every file on main is served on realteamsport.eu.
+# Internal notes and screenshots stay local only.
+*.md
+preview/
