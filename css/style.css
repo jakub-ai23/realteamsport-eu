@@ -822,7 +822,9 @@ strong { color: var(--ink); font-weight: 600; }
 @media (max-width: 768px) { .duo { grid-template-columns: 1fr; } }
 
 /* --- Diving (#potapanie): same split + reels as roundnet, plus one photo row --- */
-.dive-cta { margin-top: 1rem; }
+.dive-cta, .fresh-cta { margin-top: 1rem; }
+/* Own line, so the Future Roundnet mark below never sits beside the button. */
+.fresh-cta { display: flex; width: fit-content; }
 .gallery-dive { margin-top: clamp(2.5rem, 5vw, 4rem); }
 
 /* --- Responsive ----------------------------------------------------------- */
