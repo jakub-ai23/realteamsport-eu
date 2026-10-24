@@ -1,4 +1,4 @@
-/* REAL TEAM — mobile navigation, roundnet reels, and a second sink for enquiries.
+/* REAL TEAM — mobile navigation, video clips (roundnet, diving), and a second sink for enquiries.
    No tracking, no dependencies, no requests to other servers on page load. */
 (function () {
   'use strict';
@@ -21,9 +21,9 @@
     window.addEventListener('resize', function () { if (window.innerWidth > 768) setOpen(false); });
   }
 
-  // ---- Roundnet reels: play only while on screen, never for reduced motion ----
+  // ---- Reels (roundnet, diving): play only while on screen, never for reduced motion ----
   // Without JS the poster frame shows, which is enough.
-  var reels = document.querySelectorAll('.reel video');
+  var reels = document.querySelectorAll('.reel video, .duo-media video');
   var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reels.length && 'IntersectionObserver' in window && !still) {
     var io = new IntersectionObserver(function (entries) {

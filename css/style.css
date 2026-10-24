@@ -810,6 +810,21 @@ strong { color: var(--ink); font-weight: 600; }
 }
 .rules strong { color: #fff; }
 
+/* --- Two pillars (#aktivne-cesty): roundnet and diving, one 16:9 clip each --- */
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); }
+.duo-card { display: flex; flex-direction: column; }
+.duo-media { aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--radius); background: var(--ink); }
+.duo-media video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.duo-card h3 { margin-top: 1.25rem; }
+/* Only the paragraph flexes, so both links sit on the same line. */
+.duo-card > p { flex: 1; }
+.duo-card .link-arrow { margin-top: 1rem; align-self: flex-start; }
+@media (max-width: 768px) { .duo { grid-template-columns: 1fr; } }
+
+/* --- Diving (#potapanie): same split + reels as roundnet, plus one photo row --- */
+.dive-cta { margin-top: 1rem; }
+.gallery-dive { margin-top: clamp(2.5rem, 5vw, 4rem); }
+
 /* --- Responsive ----------------------------------------------------------- */
 
 @media (max-width: 900px) {
@@ -878,6 +893,7 @@ strong { color: var(--ink); font-weight: 600; }
 
 @media (max-width: 900px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .gallery { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .gallery-dive { grid-template-columns: repeat(2, 1fr); } }
 
 /* --- Destinations --------------------------------------------------------- */
 .dests { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: clamp(1.25rem, 3vw, 2rem); }
