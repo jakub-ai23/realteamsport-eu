@@ -896,6 +896,9 @@ strong { color: var(--ink); font-weight: 600; }
 
 @media (max-width: 900px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .gallery { grid-template-columns: 1fr; } }
+/* Six photos: 3 x 2 on desktop, 2 x 3 below 900px, never an orphan. */
+.gallery-six { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .gallery-six { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .gallery-dive { grid-template-columns: repeat(2, 1fr); } }
 
 /* --- Destinations --------------------------------------------------------- */
